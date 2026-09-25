@@ -2,7 +2,7 @@
 // TOPIC: BASIC JAVA PROGRAM - HELLO WORLD
 // ======================================================
 
-class diya {
+/*class diya {
     public static void main(String s[]) {
         System.out.println("hello diya");
     }
@@ -550,5 +550,98 @@ class PrimeNumber {
         }
 
         sc.close();
+    }
+}
+
+polymorphism code 
+
+class poly {
+   int a, b, c;
+    void calc() {
+        a = 5;
+        b = 9;
+        c = a + b;
+
+        System.out.println("a=" + a + "\nb=" + b + "\nc=" + c);
+    }
+    void calc(int x, int y) {
+        a = x;
+        b = y;
+        c = a * b;
+
+        System.out.println("a=" + a + "\nb=" + b + "\nc=" + c);
+    }
+}
+class Testpoly {
+    public static void main(String s[]) {
+        poly p = new poly();
+
+        p.calc();
+        p.calc(7, 9);
+    }
+}*/
+
+// topic : changing output of the basis of number of inputs and example of polymorphism 
+ import java.util.*;
+
+class Area {
+
+    float a, b, c;
+
+    void getside(int x) {
+        a = x;
+        System.out.println("Area of square = " + (x * x));
+    }
+
+    void getside(int x, int y) {
+        a = x;
+        b = y;
+        System.out.println("Area of rectangle = " + (x * y));
+    }
+
+    void getside(int x, int y, int z) {
+        a = x;
+        b = y;
+        c = z;
+
+        System.out.println("Area of triangle = " + (0.5 * x * y));
+    }
+}
+
+class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter sides: ");
+        String input = sc.nextLine();
+
+        String[] values = input.trim().split("\\s+");
+
+        Area obj = new Area();
+
+        if (values.length == 1) {
+
+            int x = Integer.parseInt(values[0]);
+            obj.getside(x);
+
+        } else if (values.length == 2) {
+
+            int x = Integer.parseInt(values[0]);
+            int y = Integer.parseInt(values[1]);
+            obj.getside(x, y);
+
+        } else if (values.length == 3) {
+
+            int x = Integer.parseInt(values[0]);
+            int y = Integer.parseInt(values[1]);
+            int z = Integer.parseInt(values[2]);
+            obj.getside(x, y, z);
+
+        } else {
+
+            System.out.println("Invalid number of inputs.");
+        }
     }
 }
