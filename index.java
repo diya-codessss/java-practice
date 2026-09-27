@@ -645,3 +645,32 @@ class Main {
         }
     }
 }
+// Topic: Array of Objects + Function + reduce()
+
+const cart = [
+  {
+    name: "T-Shirt",
+    price: 499,
+    quantity: 2
+  },
+  {
+    name: "Jeans",
+    price: 999,
+    quantity: 1
+  },
+  {
+    name: "Shoes",
+    price: 1499,
+    quantity: 1
+  }
+];
+
+function calculateTotal(cart) {
+  return cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+}
+
+const total = calculateTotal(cart);
+
+console.log("Total Cart Amount: ₹" + total);
