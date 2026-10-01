@@ -753,3 +753,35 @@ class TestAbstraction {
         d.eat();
     }
 }
+// Topic: Interface
+
+interface Vehicle {
+
+    void start();
+
+    void stop();
+}
+
+class Car implements Vehicle {
+
+    @Override
+    public void start() {
+        System.out.println("Car is starting");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car is stopping");
+    }
+}
+
+class TestInterface {
+
+    public static void main(String[] args) {
+
+        Car c = new Car();
+
+        c.start();
+        c.stop();
+    }
+}
