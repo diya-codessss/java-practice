@@ -849,3 +849,34 @@ class ExceptionHandling {
         }
     }
 }
+// Topic: ArrayList
+
+import java.util.ArrayList;
+
+class ArrayListExample {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+
+        // Adding elements
+        names.add("Diya");
+        names.add("Rahul");
+        names.add("Priya");
+
+        // Displaying elements
+        System.out.println("Names: " + names);
+
+        // Accessing an element
+        System.out.println("First Name: " + names.get(0));
+
+        // Removing an element
+        names.remove("Rahul");
+
+        // Updated ArrayList
+        System.out.println("After Removing: " + names);
+
+        // Size of ArrayList
+        System.out.println("Size: " + names.size());
+    }
+}
