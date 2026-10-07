@@ -581,302 +581,38 @@ class Testpoly {
     }
 }*/
 
-// topic : changing output of the basis of number of inputs and example of polymorphism 
- import java.util.*;
+// Topic: HashMap
 
-class Area {
+import java.util.HashMap;
 
-    float a, b, c;
-
-    void getside(int x) {
-        a = x;
-        System.out.println("Area of square = " + (x * x));
-    }
-
-    void getside(int x, int y) {
-        a = x;
-        b = y;
-        System.out.println("Area of rectangle = " + (x * y));
-    }
-
-    void getside(int x, int y, int z) {
-        a = x;
-        b = y;
-        c = z;
-
-        System.out.println("Area of triangle = " + (0.5 * x * y));
-    }
-}
-
-class Main {
+class HashMapExample {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, String> students = new HashMap<>();
 
-        System.out.print("Enter sides: ");
-        String input = sc.nextLine();
+        // Adding key-value pairs
+        students.put(1, "Diya");
+        students.put(2, "Rahul");
+        students.put(3, "Priya");
 
-        String[] values = input.trim().split("\\s+");
+        // Display HashMap
+        System.out.println("Students: " + students);
 
-        Area obj = new Area();
+        // Accessing value using key
+        System.out.println("Student with ID 1: " + students.get(1));
 
-        if (values.length == 1) {
+        // Updating value
+        students.put(2, "Aman");
 
-            int x = Integer.parseInt(values[0]);
-            obj.getside(x);
+        System.out.println("After Updating: " + students);
 
-        } else if (values.length == 2) {
+        // Removing a key-value pair
+        students.remove(3);
 
-            int x = Integer.parseInt(values[0]);
-            int y = Integer.parseInt(values[1]);
-            obj.getside(x, y);
+        System.out.println("After Removing: " + students);
 
-        } else if (values.length == 3) {
-
-            int x = Integer.parseInt(values[0]);
-            int y = Integer.parseInt(values[1]);
-            int z = Integer.parseInt(values[2]);
-            obj.getside(x, y, z);
-
-        } else {
-
-            System.out.println("Invalid number of inputs.");
-        }
-    }
-}
-// Topic: Array of Objects + Function + reduce()
-
-const cart = [
-  {
-    name: "T-Shirt",
-    price: 499,
-    quantity: 2
-  },
-  {
-    name: "Jeans",
-    price: 999,
-    quantity: 1
-  },
-  {
-    name: "Shoes",
-    price: 1499,
-    quantity: 1
-  }
-];
-
-function calculateTotal(cart) {
-  return cart.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
-}
-
-const total = calculateTotal(cart);
-
-console.log("Total Cart Amount: ₹" + total);
-
-// Topic: Method Overloading
-
-class MethodOverloading {
-
-    static int add(int a, int b) {
-        return a + b;
-    }
-
-    static int add(int a, int b, int c) {
-        return a + b + c;
-    }
-
-    static double add(double a, double b) {
-        return a + b;
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println(add(10, 20));
-        System.out.println(add(10, 20, 30));
-        System.out.println(add(10.5, 20.5));
-    }
-}
-// Topic: Method Overriding
-
-class Animal {
-
-    void sound() {
-        System.out.println("Animal makes a sound");
-    }
-}
-
-class Dog extends Animal {
-
-    @Override
-    void sound() {
-        System.out.println("Dog barks");
-    }
-}
-
-class TestOverriding {
-
-    public static void main(String[] args) {
-
-        Animal obj = new Dog();
-
-        obj.sound();
-    }
-}
-// Topic: Abstraction
-
-abstract class Animal {
-
-    abstract void sound();
-
-    void eat() {
-        System.out.println("Animal is eating");
-    }
-}
-
-class Dog extends Animal {
-
-    @Override
-    void sound() {
-        System.out.println("Dog barks");
-    }
-}
-
-class TestAbstraction {
-
-    public static void main(String[] args) {
-
-        Dog d = new Dog();
-
-        d.sound();
-        d.eat();
-    }
-}
-// Topic: Interface
-
-interface Vehicle {
-
-    void start();
-
-    void stop();
-}
-
-class Car implements Vehicle {
-
-    @Override
-    public void start() {
-        System.out.println("Car is starting");
-    }
-
-    @Override
-    public void stop() {
-        System.out.println("Car is stopping");
-    }
-}
-
-class TestInterface {
-
-    public static void main(String[] args) {
-
-        Car c = new Car();
-
-        c.start();
-        c.stop();
-    }
-}
-// Topic: Encapsulation
-
-class Student {
-
-    private String name;
-    private int age;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setAge(int age) {
-        if (age > 0) {
-            this.age = age;
-        } else {
-            System.out.println("Invalid age");
-        }
-    }
-
-    public int getAge() {
-        return age;
-    }
-}
-
-class TestEncapsulation {
-
-    public static void main(String[] args) {
-
-        Student s = new Student();
-
-        s.setName("Diya");
-        s.setAge(20);
-
-        System.out.println("Name: " + s.getName());
-        System.out.println("Age: " + s.getAge());
-    }
-}
-// Topic: Exception Handling using try-catch-finally
-
-class ExceptionHandling {
-
-    public static void main(String[] args) {
-
-        int a = 10;
-        int b = 0;
-
-        try {
-            int result = a / b;
-            System.out.println("Result: " + result);
-        }
-
-        catch (ArithmeticException e) {
-            System.out.println("Cannot divide by zero");
-        }
-
-        finally {
-            System.out.println("Program execution completed");
-        }
-    }
-}
-// Topic: ArrayList
-
-import java.util.ArrayList;
-
-class ArrayListExample {
-
-    public static void main(String[] args) {
-
-        ArrayList<String> names = new ArrayList<>();
-
-        // Adding elements
-        names.add("Diya");
-        names.add("Rahul");
-        names.add("Priya");
-
-        // Displaying elements
-        System.out.println("Names: " + names);
-
-        // Accessing an element
-        System.out.println("First Name: " + names.get(0));
-
-        // Removing an element
-        names.remove("Rahul");
-
-        // Updated ArrayList
-        System.out.println("After Removing: " + names);
-
-        // Size of ArrayList
-        System.out.println("Size: " + names.size());
+        // Checking key
+        System.out.println("Contains ID 1: " + students.containsKey(1));
     }
 }
