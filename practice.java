@@ -26,10 +26,39 @@ class LinkedListExample {
     
         names.removeFirst();
 
+
         names.removeLast();
 
         System.out.println("After Removing: " + names);
 
+        // Size
         System.out.println("Size: " + names.size());
+    }
+};
+
+// Topic: Constructor
+
+class LinkedListExample {
+
+    String name;
+    int age;
+
+    // Constructor
+    LinkedListExample(String n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListExample student1 =
+            new LinkedListExample("Diya", 20);
+
+        student1.display();
     }
 }
