@@ -62,3 +62,29 @@ class LinkedListExample {
         student1.display();
     }
 }
+// Topic: this keyword
+
+class LinkedListExample {
+
+    String name;
+    int age;
+
+    // Constructor
+    LinkedListExample(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListExample student =
+            new LinkedListExample("Diya", 20);
+
+        student.display();
+    }
+}
