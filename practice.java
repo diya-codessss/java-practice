@@ -88,3 +88,32 @@ class LinkedListExample {
         student.display();
     }
 }
+// Topic: Static Keyword
+
+class LinkedListExample {
+
+    static String college = "IGNOU";
+
+    String name;
+
+    LinkedListExample(String name) {
+        this.name = name;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("College: " + college);
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListExample student1 =
+                new LinkedListExample("Diya");
+
+        LinkedListExample student2 =
+                new LinkedListExample("Rahul");
+
+        student1.display();
+        student2.display();
+    }
+}
