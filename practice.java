@@ -117,3 +117,20 @@ class LinkedListExample {
         student2.display();
     }
 }
+// Topic: final keyword
+
+class LinkedListExample {
+
+    final int MAX_MARKS = 100;
+
+    void display() {
+        System.out.println("Maximum Marks: " + MAX_MARKS);
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListExample obj = new LinkedListExample();
+
+        obj.display();
+    }
+}
