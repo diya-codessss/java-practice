@@ -134,3 +134,45 @@ class LinkedListExample {
         obj.display();
     }
 }
+// Topic: Constructor Overloading
+
+class LinkedListExample {
+
+    String name;
+    int age;
+
+    // Default constructor
+    LinkedListExample() {
+        name = "Unknown";
+        age = 0;
+    }
+
+    // Constructor with one parameter
+    LinkedListExample(String name) {
+        this.name = name;
+        age = 18;
+    }
+
+    // Constructor with two parameters
+    LinkedListExample(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("-----------");
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListExample s1 = new LinkedListExample();
+        LinkedListExample s2 = new LinkedListExample("Diya");
+        LinkedListExample s3 = new LinkedListExample("Rahul", 21);
+
+        s1.display();
+        s2.display();
+        s3.display();
+    }
+}
