@@ -329,3 +329,40 @@ class SwingExample {
         frame.setVisible(true);
     }
 }
+
+// Topic: JOptionPane
+
+class JOptionPaneExample {
+
+    public static void main(String[] args) {
+
+        String name = JOptionPane.showInputDialog(
+            null, "Enter your name:"
+        );
+
+        if (name != null && !name.trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(
+                null, "Welcome, " + name + "!"
+            );
+
+            int choice = JOptionPane.showConfirmDialog(
+                null,
+                "Do you want to continue?",
+                "Confirmation",
+                JOptionPane.YES_NO_OPTION
+            );
+
+            if (choice == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(
+                    null, "You selected Yes!"
+                );
+            } else {
+                JOptionPane.showMessageDialog(
+                    null, "You selected No or closed the box."
+                );
+            }
+        }
+    }
+}
+
