@@ -366,3 +366,48 @@ class JOptionPaneExample {
     }
 }
 
+
+class RadioButtonExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Radio Button Example");
+        frame.setSize(350, 250);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Select your gender:");
+
+        JRadioButton male = new JRadioButton("Male");
+        JRadioButton female = new JRadioButton("Female");
+        JRadioButton other = new JRadioButton("Other");
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(male);
+        group.add(female);
+        group.add(other);
+
+        JButton button = new JButton("Submit");
+
+        button.addActionListener(e -> {
+            if (male.isSelected()) {
+                JOptionPane.showMessageDialog(frame, "Selected: Male");
+            } else if (female.isSelected()) {
+                JOptionPane.showMessageDialog(frame, "Selected: Female");
+            } else if (other.isSelected()) {
+                JOptionPane.showMessageDialog(frame, "Selected: Other");
+            } else {
+                JOptionPane.showMessageDialog(frame, "Please select an option!");
+            }
+        });
+
+        frame.add(label);
+        frame.add(male);
+        frame.add(female);
+        frame.add(other);
+        frame.add(button);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
