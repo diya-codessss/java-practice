@@ -411,3 +411,63 @@ class RadioButtonExample {
         frame.setVisible(true);
     }
 }
+
+// Topic: JCheckBox
+
+class CheckBoxExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Hobbies Selection");
+        frame.setSize(350, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Select your hobbies:");
+
+        JCheckBox reading = new JCheckBox("Reading");
+        JCheckBox music = new JCheckBox("Listening to Music");
+        JCheckBox sports = new JCheckBox("Playing Sports");
+        JCheckBox coding = new JCheckBox("Coding");
+
+        JButton submit = new JButton("Submit");
+
+        submit.addActionListener(e -> {
+
+            String hobbies = "";
+
+            if (reading.isSelected()) {
+                hobbies += "Reading\n";
+            }
+
+            if (music.isSelected()) {
+                hobbies += "Listening to Music\n";
+            }
+
+            if (sports.isSelected()) {
+                hobbies += "Playing Sports\n";
+            }
+
+            if (coding.isSelected()) {
+                hobbies += "Coding\n";
+            }
+
+            if (hobbies.isEmpty()) {
+                hobbies = "No hobby selected.";
+            }
+
+            JOptionPane.showMessageDialog(frame, hobbies);
+        });
+
+        frame.add(label);
+        frame.add(reading);
+        frame.add(music);
+        frame.add(sports);
+        frame.add(coding);
+        frame.add(submit);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
