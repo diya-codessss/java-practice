@@ -471,3 +471,48 @@ class CheckBoxExample {
     }
 }
 
+// Topic: JComboBox
+
+class ComboBoxExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Course Selection");
+        frame.setSize(350, 200);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Select your course:");
+
+        String[] courses = {
+            "BCA",
+            "MCA",
+            "B.Tech",
+            "BBA",
+            "M.Tech"
+        };
+
+        JComboBox<String> courseBox =
+                new JComboBox<>(courses);
+
+        JButton button = new JButton("Submit");
+
+        button.addActionListener(e -> {
+            String course =
+                    (String) courseBox.getSelectedItem();
+
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Your selected course is: " + course
+            );
+        });
+
+        frame.add(label);
+        frame.add(courseBox);
+        frame.add(button);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
