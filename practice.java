@@ -516,3 +516,47 @@ class ComboBoxExample {
     }
 }
 
+// Topic: JTextArea
+
+class TextAreaExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Student Feedback Form");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Enter your feedback:");
+
+        JTextArea feedbackArea = new JTextArea(6, 25);
+        feedbackArea.setLineWrap(true);
+        feedbackArea.setWrapStyleWord(true);
+
+        JScrollPane scrollPane = new JScrollPane(feedbackArea);
+
+        JButton submitButton = new JButton("Submit");
+
+        submitButton.addActionListener(e -> {
+            String feedback = feedbackArea.getText();
+
+            if (feedback.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(
+                    frame, "Please enter your feedback!"
+                );
+            } else {
+                JOptionPane.showMessageDialog(
+                    frame, "Your Feedback:\n" + feedback
+                );
+            }
+        });
+
+        frame.add(label);
+        frame.add(scrollPane);
+        frame.add(submitButton);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
