@@ -560,3 +560,35 @@ class TextAreaExample {
     }
 }
 
+
+// Topic: JTable
+
+class JTableExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Student Data Table");
+        frame.setSize(500, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        String[] columns = {
+            "Name", "Course", "Marks"
+        };
+
+        Object[][] data = {
+            {"Diya", "BCA", 85},
+            {"Rahul", "MCA", 90},
+            {"Priya", "B.Tech", 88},
+            {"Aman", "BCA", 78}
+        };
+
+        JTable table = new JTable(data, columns);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        frame.add(scrollPane);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
