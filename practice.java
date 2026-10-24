@@ -592,3 +592,44 @@ class JTableExample {
         frame.setVisible(true);
     }
 }
+
+ // Topic: JComboBox
+
+class ComboBoxExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Course Selection");
+        frame.setSize(350, 250);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Select your course:");
+
+        String[] courses = {
+            "BCA", "MCA", "B.Tech", "BBA", "M.Tech"
+        };
+
+        JComboBox<String> courseBox = new JComboBox<>(courses);
+
+        JButton button = new JButton("Submit");
+
+        button.addActionListener(e -> {
+
+            String selectedCourse =
+                (String) courseBox.getSelectedItem();
+
+            JOptionPane.showMessageDialog(
+                frame,
+                "Your selected course is: " + selectedCourse
+            );
+        });
+
+        frame.add(label);
+        frame.add(courseBox);
+        frame.add(button);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
