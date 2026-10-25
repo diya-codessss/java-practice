@@ -633,3 +633,81 @@ class ComboBoxExample {
         frame.setVisible(true);
     }
 }
+
+// Topic: JMenuBar
+
+class MenuBarExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("My Java Application");
+        frame.setSize(500, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu fileMenu = new JMenu("File");
+        JMenu editMenu = new JMenu("Edit");
+        JMenu helpMenu = new JMenu("Help");
+
+        JMenuItem newItem = new JMenuItem("New");
+        JMenuItem openItem = new JMenuItem("Open");
+        JMenuItem exitItem = new JMenuItem("Exit");
+
+        JMenuItem copyItem = new JMenuItem("Copy");
+        JMenuItem pasteItem = new JMenuItem("Paste");
+
+        JMenuItem aboutItem = new JMenuItem("About");
+
+        fileMenu.add(newItem);
+        fileMenu.add(openItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitItem);
+
+        editMenu.add(copyItem);
+        editMenu.add(pasteItem);
+
+        helpMenu.add(aboutItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+
+        frame.setJMenuBar(menuBar);
+
+        JLabel label = new JLabel(
+            "Welcome to My Java Application!",
+            SwingConstants.CENTER
+        );
+
+        frame.add(label);
+
+        exitItem.addActionListener(e -> frame.dispose());
+
+        aboutItem.addActionListener(e ->
+            JOptionPane.showMessageDialog(
+                frame, "My Java Swing Application"
+            )
+        );
+
+        newItem.addActionListener(e ->
+            JOptionPane.showMessageDialog(frame, "New clicked!")
+        );
+
+        openItem.addActionListener(e ->
+            JOptionPane.showMessageDialog(frame, "Open clicked!")
+        );
+
+        copyItem.addActionListener(e ->
+            JOptionPane.showMessageDialog(frame, "Copy clicked!")
+        );
+
+        pasteItem.addActionListener(e ->
+            JOptionPane.showMessageDialog(frame, "Paste clicked!")
+        );
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
