@@ -711,3 +711,43 @@ class MenuBarExample {
     }
 }
 
+
+// Topic: JTabbedPane
+
+class TabbedPaneExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Student Application");
+        frame.setSize(450, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JTabbedPane tabs = new JTabbedPane();
+
+        // Home Tab
+        JPanel homePanel = new JPanel();
+        homePanel.add(new JLabel("Welcome to Student Application!"));
+
+        // Profile Tab
+        JPanel profilePanel = new JPanel();
+        profilePanel.setLayout(new GridLayout(3, 1));
+
+        profilePanel.add(new JLabel("Name: Diya"));
+        profilePanel.add(new JLabel("Course: BCA"));
+        profilePanel.add(new JLabel("College: IGNOU"));
+
+        // About Tab
+        JPanel aboutPanel = new JPanel();
+        aboutPanel.add(new JLabel("This application is made using Java Swing."));
+
+        // Add tabs
+        tabs.addTab("Home", homePanel);
+        tabs.addTab("Profile", profilePanel);
+        tabs.addTab("About", aboutPanel);
+
+        frame.add(tabs);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
