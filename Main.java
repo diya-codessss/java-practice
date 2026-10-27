@@ -616,3 +616,62 @@ class HashMapExample {
         System.out.println("Contains ID 1: " + students.containsKey(1));
     }
 }
+
+// Topic: JProgressBar
+
+class ProgressBarExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Download Progress");
+        frame.setSize(400, 180);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new GridLayout(3, 1, 10, 10));
+
+        JLabel label = new JLabel(
+            "Task Progress: 0%", SwingConstants.CENTER
+        );
+
+        JProgressBar progressBar = new JProgressBar(0, 100);
+        progressBar.setValue(0);
+        progressBar.setStringPainted(true);
+
+        JButton startButton = new JButton("Start Task");
+
+        startButton.addActionListener(e -> {
+            startButton.setEnabled(false);
+
+            Thread worker = new Thread(() -> {
+                for (int i = 0; i <= 100; i++) {
+                    final int progress = i;
+
+                    SwingUtilities.invokeLater(() -> {
+                        progressBar.setValue(progress);
+                        label.setText("Task Progress: " + progress + "%");
+                    });
+
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
+                }
+
+                SwingUtilities.invokeLater(() -> {
+                    label.setText("Task Completed!");
+                    startButton.setEnabled(true);
+                });
+            });
+
+            worker.start();
+        });
+
+        frame.add(label);
+        frame.add(progressBar);
+        frame.add(startButton);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
