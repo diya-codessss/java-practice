@@ -675,3 +675,32 @@ class ProgressBarExample {
         frame.setVisible(true);
     }
 }
+
+class SliderExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Volume Control");
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new GridLayout(3, 1, 10, 10));
+
+        JLabel label = new JLabel("Volume: 50", SwingConstants.CENTER);
+
+        JSlider slider = new JSlider(0, 100, 50);
+        slider.setMajorTickSpacing(25);
+        slider.setMinorTickSpacing(5);
+        slider.setPaintTicks(true);
+        slider.setPaintLabels(true);
+
+        slider.addChangeListener(e -> {
+            label.setText("Volume: " + slider.getValue());
+        });
+
+        frame.add(label);
+        frame.add(slider);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
