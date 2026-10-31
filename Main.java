@@ -746,3 +746,42 @@ class PasswordFieldExample {
         frame.setVisible(true);
     }
 }
+
+class FileChooserExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("File Chooser");
+        frame.setSize(450, 200);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JButton chooseButton = new JButton("Choose File");
+        JLabel label = new JLabel("No file selected");
+
+        chooseButton.addActionListener(e -> {
+
+            JFileChooser fileChooser = new JFileChooser();
+
+            int result = fileChooser.showOpenDialog(frame);
+
+            if (result == JFileChooser.APPROVE_OPTION) {
+
+                String filePath = fileChooser
+                    .getSelectedFile()
+                    .getAbsolutePath();
+
+                label.setText(filePath);
+
+            } else {
+                label.setText("No file selected");
+            }
+        });
+
+        frame.add(chooseButton);
+        frame.add(label);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
