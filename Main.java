@@ -785,3 +785,42 @@ class FileChooserExample {
         frame.setVisible(true);
     }
 }
+
+class ColorChooserExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Color Chooser");
+        frame.setSize(400, 250);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Choose Your Favorite Color");
+        JButton button = new JButton("Choose Color");
+
+        JPanel panel = new JPanel();
+        panel.setPreferredSize(new Dimension(300, 100));
+        panel.setBackground(Color.WHITE);
+
+        button.addActionListener(e -> {
+
+            Color selectedColor =
+                JColorChooser.showDialog(
+                    frame,
+                    "Select a Color",
+                    Color.WHITE
+                );
+
+            if (selectedColor != null) {
+                panel.setBackground(selectedColor);
+            }
+        });
+
+        frame.add(label);
+        frame.add(button);
+        frame.add(panel);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
