@@ -824,3 +824,41 @@ class ColorChooserExample {
         frame.setVisible(true);
     }
 }
+
+class SpinnerExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("JSpinner Example");
+        frame.setSize(350, 200);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Select Quantity:");
+
+        SpinnerNumberModel model =
+            new SpinnerNumberModel(1, 1, 10, 1);
+
+        JSpinner spinner = new JSpinner(model);
+
+        JButton button = new JButton("Submit");
+
+        JLabel result = new JLabel("");
+
+        button.addActionListener(e -> {
+
+            int quantity = (int) spinner.getValue();
+
+            result.setText("Selected Quantity: " + quantity);
+        });
+
+        frame.add(label);
+        frame.add(spinner);
+        frame.add(button);
+        frame.add(result);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
