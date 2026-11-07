@@ -581,44 +581,11 @@ class Testpoly {
     }
 }*/
 
-// Topic: HashMap
 
-import java.util.HashMap;
+import javax.swing.*;
+import java.awt.*;
 
-class HashMapExample {
-
-    public static void main(String[] args) {
-
-        HashMap<Integer, String> students = new HashMap<>();
-
-        // Adding key-value pairs
-        students.put(1, "Diya");
-        students.put(2, "Rahul");
-        students.put(3, "Priya");
-
-        // Display HashMap
-        System.out.println("Students: " + students);
-
-        // Accessing value using key
-        System.out.println("Student with ID 1: " + students.get(1));
-
-        // Updating value
-        students.put(2, "Aman");
-
-        System.out.println("After Updating: " + students);
-
-        // Removing a key-value pair
-        students.remove(3);
-
-        System.out.println("After Removing: " + students);
-
-        // Checking key
-        System.out.println("Contains ID 1: " + students.containsKey(1));
-    }
-}
-
-// Topic: JProgressBar
-
+// 1. Progress Bar
 class ProgressBarExample {
 
     public static void main(String[] args) {
@@ -628,12 +595,9 @@ class ProgressBarExample {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new GridLayout(3, 1, 10, 10));
 
-        JLabel label = new JLabel(
-            "Task Progress: 0%", SwingConstants.CENTER
-        );
+        JLabel label = new JLabel("Task Progress: 0%", SwingConstants.CENTER);
 
         JProgressBar progressBar = new JProgressBar(0, 100);
-        progressBar.setValue(0);
         progressBar.setStringPainted(true);
 
         JButton startButton = new JButton("Start Task");
@@ -676,6 +640,7 @@ class ProgressBarExample {
     }
 }
 
+// 2. Slider
 class SliderExample {
 
     public static void main(String[] args) {
@@ -693,9 +658,9 @@ class SliderExample {
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
 
-        slider.addChangeListener(e -> {
-            label.setText("Volume: " + slider.getValue());
-        });
+        slider.addChangeListener(e ->
+            label.setText("Volume: " + slider.getValue())
+        );
 
         frame.add(label);
         frame.add(slider);
@@ -705,6 +670,7 @@ class SliderExample {
     }
 }
 
+// 3. Password Field
 class PasswordFieldExample {
 
     public static void main(String[] args) {
@@ -724,7 +690,6 @@ class PasswordFieldExample {
         JLabel resultLabel = new JLabel("");
 
         loginButton.addActionListener(e -> {
-
             String username = userField.getText();
             String password = new String(passField.getPassword());
 
@@ -747,6 +712,7 @@ class PasswordFieldExample {
     }
 }
 
+// 4. File Chooser
 class FileChooserExample {
 
     public static void main(String[] args) {
@@ -760,19 +726,14 @@ class FileChooserExample {
         JLabel label = new JLabel("No file selected");
 
         chooseButton.addActionListener(e -> {
-
             JFileChooser fileChooser = new JFileChooser();
 
             int result = fileChooser.showOpenDialog(frame);
 
             if (result == JFileChooser.APPROVE_OPTION) {
-
-                String filePath = fileChooser
-                    .getSelectedFile()
-                    .getAbsolutePath();
-
+                String filePath = fileChooser.getSelectedFile()
+                                             .getAbsolutePath();
                 label.setText(filePath);
-
             } else {
                 label.setText("No file selected");
             }
@@ -786,6 +747,7 @@ class FileChooserExample {
     }
 }
 
+// 5. Color Chooser
 class ColorChooserExample {
 
     public static void main(String[] args) {
@@ -803,13 +765,9 @@ class ColorChooserExample {
         panel.setBackground(Color.WHITE);
 
         button.addActionListener(e -> {
-
-            Color selectedColor =
-                JColorChooser.showDialog(
-                    frame,
-                    "Select a Color",
-                    Color.WHITE
-                );
+            Color selectedColor = JColorChooser.showDialog(
+                frame, "Select a Color", Color.WHITE
+            );
 
             if (selectedColor != null) {
                 panel.setBackground(selectedColor);
@@ -825,6 +783,7 @@ class ColorChooserExample {
     }
 }
 
+// 6. Spinner
 class SpinnerExample {
 
     public static void main(String[] args) {
@@ -842,13 +801,10 @@ class SpinnerExample {
         JSpinner spinner = new JSpinner(model);
 
         JButton button = new JButton("Submit");
-
         JLabel result = new JLabel("");
 
         button.addActionListener(e -> {
-
             int quantity = (int) spinner.getValue();
-
             result.setText("Selected Quantity: " + quantity);
         });
 
@@ -856,6 +812,55 @@ class SpinnerExample {
         frame.add(spinner);
         frame.add(button);
         frame.add(result);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
+class TreeExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("JTree Example");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Root node
+        javax.swing.tree.DefaultMutableTreeNode root =
+            new javax.swing.tree.DefaultMutableTreeNode("College");
+
+        // Child nodes
+        javax.swing.tree.DefaultMutableTreeNode department1 =
+            new javax.swing.tree.DefaultMutableTreeNode("Computer Science");
+
+        javax.swing.tree.DefaultMutableTreeNode department2 =
+            new javax.swing.tree.DefaultMutableTreeNode("Commerce");
+
+        // Student nodes
+        department1.add(
+            new javax.swing.tree.DefaultMutableTreeNode("Diya")
+        );
+
+        department1.add(
+            new javax.swing.tree.DefaultMutableTreeNode("Rahul")
+        );
+
+        department2.add(
+            new javax.swing.tree.DefaultMutableTreeNode("Priya")
+        );
+
+        // Add departments to root
+        root.add(department1);
+        root.add(department2);
+
+        // Create JTree
+        JTree tree = new JTree(root);
+
+        // Add tree inside scroll pane
+        JScrollPane scrollPane = new JScrollPane(tree);
+
+        frame.add(scrollPane);
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
