@@ -867,3 +867,53 @@ class TreeExample {
     }
 }
 
+
+class ToolBarExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("JToolBar Example");
+        frame.setSize(500, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
+
+        // Create toolbar
+        JToolBar toolbar = new JToolBar();
+
+        // Create buttons
+        JButton newButton = new JButton("New");
+        JButton saveButton = new JButton("Save");
+        JButton openButton = new JButton("Open");
+
+        // Create label
+        JLabel label = new JLabel(
+            "Welcome! Select any button.",
+            SwingConstants.CENTER
+        );
+
+        // Add buttons to toolbar
+        toolbar.add(newButton);
+        toolbar.add(saveButton);
+        toolbar.add(openButton);
+
+        // Button actions
+        newButton.addActionListener(e ->
+            label.setText("New File Created!")
+        );
+
+        saveButton.addActionListener(e ->
+            label.setText("File Saved!")
+        );
+
+        openButton.addActionListener(e ->
+            label.setText("File Opened!")
+        );
+
+        // Add components to frame
+        frame.add(toolbar, BorderLayout.NORTH);
+        frame.add(label, BorderLayout.CENTER);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
