@@ -917,3 +917,40 @@ class ToolBarExample {
         frame.setVisible(true);
     }
 }
+
+class ConfirmDialogExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Confirmation Dialog");
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        JButton deleteButton = new JButton("Delete File");
+        JLabel label = new JLabel("Click to delete a file.");
+
+        deleteButton.addActionListener(e -> {
+
+            int choice = JOptionPane.showConfirmDialog(
+                frame,
+                "Are you sure you want to delete this file?",
+                "Confirm Delete",
+                JOptionPane.YES_NO_OPTION
+            );
+
+            if (choice == JOptionPane.YES_OPTION) {
+                label.setText("File Deleted!");
+            } else {
+                label.setText("Deletion Cancelled!");
+            }
+        });
+
+        frame.add(deleteButton);
+        frame.add(label);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
