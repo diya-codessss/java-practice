@@ -954,3 +954,41 @@ class ConfirmDialogExample {
     }
 }
 
+class StudentTableExample {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Student Records");
+        frame.setSize(600, 350);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        String[] columns = {
+            "ID", "Name", "Course", "Marks"
+        };
+
+        Object[][] data = {
+            {1, "Diya", "BCA", 90},
+            {2, "Rahul", "BCA", 85},
+            {3, "Priya", "BBA", 88},
+            {4, "Aman", "BCA", 92}
+        };
+
+        JTable table = new JTable(data, columns);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        JLabel label = new JLabel(
+            "Student Records",
+            SwingConstants.CENTER
+        );
+
+        frame.setLayout(new BorderLayout());
+
+        frame.add(label, BorderLayout.NORTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+}
+
